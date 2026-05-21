@@ -1,1168 +1,2772 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NextGen E-Waste Solutions — Pune's Trusted E-Waste Partner</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NextGen E-Waste Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --green-dark: #0d3320;
-    --green-mid: #145c38;
-    --green-bright: #1e9154;
-    --green-light: #3cc47a;
-    --green-glow: #5dde96;
-    --accent: #c8f55a;
-    --accent-dim: #9dc93e;
-    --white: #f4f9f1;
-    --off: #e0eed7;
-    --gray: #8aaa90;
-    --text: #d8eddc;
-    --bg: #06150d;
-    --bg2: #0a1f13;
-    --bg3: #0f2b1a;
-    --card: #0d2416;
-    --border: rgba(62, 180, 100, 0.15);
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  h1, h2, h3, h4 {
-    font-family: 'Syne', sans-serif;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 6vw;
-    background: rgba(6, 21, 13, 0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-
-  .logo-icon {
-    width: 36px; height: 36px;
-    background: var(--accent);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    color: var(--bg);
-    flex-shrink: 0;
-  }
-
-  .logo-text {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: var(--white);
-    letter-spacing: 0.01em;
-  }
-
-  .logo-text span { color: var(--accent); }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 36px;
-  }
-
-  nav ul a {
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--gray);
-    font-weight: 400;
-    transition: color 0.2s;
-    letter-spacing: 0.02em;
-  }
-
-  nav ul a:hover { color: var(--white); }
-
-  .nav-cta {
-    background: var(--accent);
-    color: var(--bg) !important;
-    padding: 10px 22px;
-    border-radius: 6px;
-    font-weight: 500 !important;
-    font-size: 14px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.01em;
-  }
-
-  .nav-cta:hover { background: var(--green-glow); transform: translateY(-1px); }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 140px 6vw 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(30, 145, 84, 0.12) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200, 245, 90, 0.05) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(30,145,84,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(30,145,84,0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-  }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(200, 245, 90, 0.08);
-    border: 1px solid rgba(200, 245, 90, 0.2);
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    width: fit-content;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.7); }
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 6vw, 86px);
-    font-weight: 800;
-    color: var(--white);
-    max-width: 820px;
-    margin-bottom: 24px;
-    position: relative;
-  }
-
-  .hero h1 .highlight {
-    color: var(--accent);
-    display: block;
-  }
-
-  .hero p {
-    font-size: 18px;
-    color: var(--gray);
-    max-width: 540px;
-    margin-bottom: 44px;
-    font-weight: 300;
-    line-height: 1.8;
-  }
-
-  .hero-btns {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 72px;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.2s;
-    font-family: 'Syne', sans-serif;
-    letter-spacing: 0.01em;
-  }
-
-  .btn-primary:hover { background: var(--green-glow); transform: translateY(-2px); }
-
-  .btn-outline {
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 14px 32px;
-    border-radius: 8px;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.2s;
-    background: rgba(255,255,255,0.03);
-  }
-
-  .btn-outline:hover { border-color: var(--green-light); color: var(--white); background: rgba(255,255,255,0.06); }
-
-  .hero-stats {
-    display: flex;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--white);
-  }
-
-  .stat-num span { color: var(--accent); }
-
-  .stat-label {
-    font-size: 12px;
-    color: var(--gray);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ─── SCROLL TICKER ─── */
-  .ticker {
-    background: var(--bg3);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .ticker-inner {
-    display: inline-flex;
-    gap: 60px;
-    animation: scroll 28s linear infinite;
-  }
-
-  .ticker-item {
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gray);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .ticker-item::before {
-    content: '♻';
-    color: var(--accent);
-    font-size: 14px;
-  }
-
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ─── SECTION COMMON ─── */
-  section {
-    padding: 100px 6vw;
-  }
-
-  .section-tag {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-size: clamp(28px, 3.5vw, 48px);
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .section-sub {
-    font-size: 17px;
-    color: var(--gray);
-    max-width: 520px;
-    font-weight: 300;
-    line-height: 1.8;
-    margin-bottom: 56px;
-  }
-
-  /* ─── HOW IT WORKS ─── */
-  .how {
-    background: var(--bg2);
-  }
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .step {
-    background: var(--bg2);
-    padding: 36px 32px;
-    position: relative;
-    transition: background 0.2s;
-  }
-
-  .step:hover { background: var(--card); }
-
-  .step-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 48px;
-    font-weight: 800;
-    color: rgba(200, 245, 90, 0.1);
-    line-height: 1;
-    margin-bottom: 20px;
-    letter-spacing: -0.04em;
-  }
-
-  .step-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .step h3 {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .step p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* ─── SERVICES ─── */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .service-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 32px 28px;
-    transition: border-color 0.2s, transform 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--green-bright), var(--accent));
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
-  .service-card:hover { border-color: rgba(62, 180, 100, 0.35); transform: translateY(-4px); }
-  .service-card:hover::before { opacity: 1; }
-
-  .service-icon {
-    width: 48px; height: 48px;
-    background: rgba(200, 245, 90, 0.08);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(200, 245, 90, 0.12);
-  }
-
-  .service-card h3 {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .service-card p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* ─── WHY US ─── */
-  .why { background: var(--bg2); }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .why-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .why-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .why-check {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: rgba(200, 245, 90, 0.1);
-    border: 1px solid rgba(200, 245, 90, 0.2);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--accent);
-    font-size: 13px;
-    flex-shrink: 0;
-    margin-top: 3px;
-  }
-
-  .why-item h4 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .why-item p {
-    font-size: 13px;
-    color: var(--gray);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  .why-visual {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .metric-row {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .metric-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    color: var(--gray);
-  }
-
-  .metric-label span:last-child { color: var(--accent); font-weight: 500; }
-
-  .metric-bar-bg {
-    height: 6px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 100px;
-    overflow: hidden;
-  }
-
-  .metric-bar {
-    height: 100%;
-    border-radius: 100px;
-    background: linear-gradient(90deg, var(--green-mid), var(--accent));
-    animation: growBar 1.5s ease forwards;
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-
-  @keyframes growBar { to { transform: scaleX(1); } }
-
-  /* ─── WASTE TYPES ─── */
-  .waste-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 14px;
-  }
-
-  .waste-chip {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    transition: border-color 0.2s, background 0.2s;
-    cursor: default;
-  }
-
-  .waste-chip:hover { border-color: rgba(62,180,100,0.4); background: rgba(30,145,84,0.08); }
-
-  .waste-chip .emoji { font-size: 28px; }
-  .waste-chip span { font-size: 13px; color: var(--gray); font-weight: 400; line-height: 1.4; }
-
-  /* ─── TARGETS ─── */
-  .targets { background: var(--bg2); }
-
-  .target-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-  }
-
-  .target-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px 24px;
-    transition: all 0.2s;
-  }
-
-  .target-card:hover { border-color: rgba(200, 245, 90, 0.25); transform: translateY(-3px); }
-
-  .target-icon {
-    font-size: 30px;
-    margin-bottom: 14px;
-  }
-
-  .target-card h3 {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-
-  .target-card p {
-    font-size: 13px;
-    color: var(--gray);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  /* ─── CONTACT ─── */
-  .contact {
-    background: var(--bg3);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(30,145,84,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .contact-info { display: flex; flex-direction: column; gap: 32px; }
-
-  .contact-item {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .contact-dot {
-    width: 36px; height: 36px;
-    background: rgba(200,245,90,0.08);
-    border: 1px solid rgba(200,245,90,0.15);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
-    flex-shrink: 0;
-  }
-
-  .contact-item h4 {
-    font-size: 13px;
-    color: var(--gray);
-    font-weight: 400;
-    margin-bottom: 4px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    font-size: 11px;
-  }
-
-  .contact-item p {
-    font-size: 15px;
-    color: var(--white);
-    font-weight: 400;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .form-group label {
-    font-size: 12px;
-    color: var(--gray);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-    font-weight: 300;
-  }
-
-  .form-group input::placeholder,
-  .form-group textarea::placeholder { color: rgba(138,170,144,0.4); }
-
-  .form-group select { color: var(--gray); }
-  .form-group select option { background: var(--card); }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--green-light); }
-
-  .form-group textarea { resize: vertical; min-height: 110px; }
-
-  .submit-btn {
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    padding: 15px 32px;
-    border-radius: 8px;
-    font-family: 'Syne', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    letter-spacing: 0.01em;
-  }
-
-  .submit-btn:hover { background: var(--green-glow); transform: translateY(-1px); }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 40px 6vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: var(--gray);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 28px;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-    color: var(--gray);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--accent); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    nav ul { display: none; }
-    .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-stats { gap: 28px; }
-    section { padding: 70px 5vw; }
-  }
+
+/* ===== RESET & ROOT ===== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+
+  --green: #2e7d52;
+
+  --green-light: #4caf80;
+
+  --green-pale: #e8f5ee;
+
+  --green-mid: #d0edde;
+
+  --white: #ffffff;
+
+  --bg: #f4faf7;
+
+  --text: #1a2e22;
+
+  --muted: #5a7a67;
+
+  --yellow: #f5c842;
+
+  --orange: #f07830;
+
+  --blue: #3a7bbf;
+
+  --red: #e05050;
+
+  --font: 'Nunito', sans-serif;
+
+  --shadow: 0 4px 20px rgba(46,125,82,0.10);
+
+  --shadow-lg: 0 8px 32px rgba(46,125,82,0.14);
+
+}
+
+body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+
+a { text-decoration: none; }
+
+img { max-width: 100%; }
+
+
+
+/* ===== NAV ===== */
+
+nav {
+
+  background: var(--white);
+
+  padding: 0 3rem;
+
+  display: flex; align-items: center; justify-content: space-between;
+
+  box-shadow: 0 2px 12px rgba(46,125,82,0.08);
+
+  position: sticky; top: 0; z-index: 200;
+
+  height: 64px;
+
+}
+
+.logo { font-size: 1.3rem; font-weight: 900; color: var(--green); display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+
+.nav-links { display: flex; gap: 0.25rem; list-style: none; }
+
+.nav-links li a {
+
+  display: flex; align-items: center; gap: 0.35rem;
+
+  padding: 0.45rem 0.9rem;
+
+  border-radius: 50px;
+
+  color: var(--muted);
+
+  font-weight: 700;
+
+  font-size: 0.9rem;
+
+  transition: all 0.2s;
+
+}
+
+.nav-links li a:hover, .nav-links li a.active { background: var(--green-pale); color: var(--green); }
+
+.nav-btn {
+
+  background: var(--green); color: white; border: none;
+
+  padding: 0.55rem 1.4rem; border-radius: 50px;
+
+  font-family: var(--font); font-weight: 800; font-size: 0.88rem;
+
+  cursor: pointer; transition: background 0.2s;
+
+}
+
+.nav-btn:hover { background: var(--green-light); }
+
+.hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--green); }
+
+.mobile-menu {
+
+  display: none; position: fixed; top: 64px; left: 0; right: 0;
+
+  background: white; z-index: 199; padding: 1rem 1.5rem 1.5rem;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08); flex-direction: column; gap: 0.5rem;
+
+}
+
+.mobile-menu a { display: block; padding: 0.7rem 1rem; font-weight: 700; color: var(--muted); border-radius: 10px; }
+
+.mobile-menu a:hover, .mobile-menu a.active { background: var(--green-pale); color: var(--green); }
+
+.mobile-menu.open { display: flex; }
+
+
+
+/* ===== PAGE WRAPPER ===== */
+
+.page { display: none; animation: fadeIn 0.35s ease; }
+
+.page.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+
+
+/* ===== SHARED COMPONENTS ===== */
+
+.section-tag {
+
+  display: inline-block; background: var(--green-pale); color: var(--green);
+
+  font-size: 0.75rem; font-weight: 800; padding: 0.3rem 1rem; border-radius: 50px;
+
+  margin-bottom: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase;
+
+}
+
+.section-tag.yellow { background: #fff3cd; color: #a07020; }
+
+.section-tag.blue { background: #deeaf8; color: var(--blue); }
+
+.section-tag.orange { background: #fde8d8; color: var(--orange); }
+
+.section-tag.white { background: rgba(255,255,255,0.15); color: white; }
+
+
+
+h2.page-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: var(--text); margin-bottom: 0.5rem; line-height: 1.15; }
+
+h2.page-title.white { color: white; }
+
+.sub-text { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; max-width: 580px; }
+
+.sub-text.white { color: rgba(255,255,255,0.7); }
+
+
+
+.btn-green { background: var(--green); color: white; padding: 0.78rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.95rem; display: inline-block; border: none; cursor: pointer; font-family: var(--font); transition: background 0.2s, transform 0.1s; }
+
+.btn-green:hover { background: var(--green-light); transform: translateY(-1px); }
+
+.btn-white { background: white; color: var(--green); padding: 0.78rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.95rem; display: inline-block; border: 2px solid var(--green); cursor: pointer; font-family: var(--font); transition: all 0.2s; }
+
+.btn-white:hover { background: var(--green-pale); }
+
+.btn-outline-white { background: transparent; color: white; padding: 0.78rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.95rem; display: inline-block; border: 2px solid rgba(255,255,255,0.6); cursor: pointer; font-family: var(--font); transition: all 0.2s; }
+
+.btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+
+
+.card { background: white; border-radius: 20px; padding: 1.75rem 1.5rem; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+
+
+/* ===== HERO BANNER (reusable) ===== */
+
+.page-hero {
+
+  background: linear-gradient(135deg, #e8f5ee 0%, #d0edde 60%, #c5e8d5 100%);
+
+  padding: 3.5rem 3rem;
+
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+
+}
+
+.page-hero.dark { background: linear-gradient(135deg, #1a2e22 0%, #2e4a38 100%); }
+
+.page-hero.green { background: linear-gradient(135deg, var(--green) 0%, #1a5c35 100%); }
+
+.page-hero.yellow { background: linear-gradient(135deg, #fff3cd 0%, #fde8a0 100%); }
+
+.page-hero.blue { background: linear-gradient(135deg, #deeaf8 0%, #bdd4f0 100%); }
+
+
+
+/* ===== STATS BAR ===== */
+
+.stats-bar { background: var(--green); padding: 1.4rem 3rem; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; }
+
+.stat { text-align: center; color: white; }
+
+.stat-num { font-size: 1.9rem; font-weight: 900; line-height: 1.1; }
+
+.stat-label { font-size: 0.75rem; opacity: 0.85; font-weight: 600; }
+
+
+
+/* ===== SECTION ===== */
+
+.section { padding: 4.5rem 3rem; }
+
+.section.bg-pale { background: var(--green-pale); }
+
+.section.bg-dark { background: var(--text); }
+
+.section.bg-white { background: white; }
+
+.section.bg-yellow { background: #fffbec; }
+
+
+
+/* GRID HELPERS */
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+
+
+
+/* ===== FOOTER ===== */
+
+footer {
+
+  background: var(--text); color: rgba(255,255,255,0.65);
+
+  padding: 3rem 3rem 1.5rem;
+
+}
+
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2rem; }
+
+.footer-logo { font-size: 1.25rem; font-weight: 900; color: var(--green-light); margin-bottom: 0.75rem; }
+
+.footer-about { font-size: 0.85rem; line-height: 1.7; max-width: 260px; }
+
+.footer-col h4 { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green-light); margin-bottom: 1rem; }
+
+.footer-col ul { list-style: none; }
+
+.footer-col li { font-size: 0.85rem; margin-bottom: 0.5rem; cursor: pointer; transition: color 0.2s; }
+
+.footer-col li:hover { color: white; }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.78rem; }
+
+.footer-bottom a { color: rgba(255,255,255,0.4); margin-left: 1.2rem; }
+
+.footer-bottom a:hover { color: white; }
+
+
+
+/* ===== PAGE: HOME ===== */
+
+.hero-home h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.12; color: var(--text); margin-bottom: 1rem; }
+
+.hero-home h1 span { color: var(--green); }
+
+.hero-home p { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; max-width: 500px; }
+
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.devices-showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.dev-card { background: white; border-radius: 16px; padding: 1rem 0.75rem; text-align: center; box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+
+.dev-card span { font-size: 0.78rem; font-weight: 700; color: var(--muted); }
+
+
+
+/* accept cards */
+
+.accept-card { text-align: center; }
+
+.accept-card .icon-wrap { width: 64px; height: 64px; background: var(--green-pale); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.85rem; }
+
+.accept-card h3 { font-size: 0.92rem; font-weight: 800; margin-bottom: 0.25rem; }
+
+.accept-card p { font-size: 0.8rem; color: var(--muted); }
+
+
+
+/* home steps */
+
+.step-card { text-align: center; }
+
+.step-num-circle { width: 44px; height: 44px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 900; margin: 0 auto 1rem; }
+
+.step-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.35rem; }
+
+.step-card p { font-size: 0.83rem; color: var(--muted); }
+
+
+
+/* ===== PAGE: ABOUT ===== */
+
+.about-story { font-size: 1.02rem; color: var(--muted); line-height: 1.85; }
+
+.about-story + .about-story { margin-top: 1.1rem; }
+
+.value-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+.value-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.3rem; }
+
+.value-card p { font-size: 0.83rem; color: var(--muted); }
+
+.team-card { text-align: center; }
+
+.team-avatar { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 0.85rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+
+.team-card h3 { font-size: 0.95rem; font-weight: 800; }
+
+.team-card p { font-size: 0.8rem; color: var(--muted); }
+
+.team-card .role { font-size: 0.78rem; font-weight: 700; color: var(--green); margin-bottom: 0.25rem; }
+
+.cert-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.cert-badge { background: var(--green-pale); border-radius: 14px; padding: 0.9rem 1.4rem; display: flex; align-items: center; gap: 0.75rem; }
+
+.cert-badge .icon { font-size: 1.5rem; }
+
+.cert-badge h4 { font-size: 0.88rem; font-weight: 800; color: var(--green); }
+
+.cert-badge p { font-size: 0.75rem; color: var(--muted); }
+
+
+
+/* ===== PAGE: SERVICES ===== */
+
+.service-big-card { display: flex; gap: 2rem; align-items: flex-start; }
+
+.service-big-card .s-icon { font-size: 2.8rem; flex-shrink: 0; width: 70px; height: 70px; background: var(--green-pale); border-radius: 18px; display: flex; align-items: center; justify-content: center; }
+
+.service-big-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem; }
+
+.service-big-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+.service-big-card .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.85rem; }
+
+.service-big-card .tag { background: var(--green-pale); color: var(--green); font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.8rem; border-radius: 50px; }
+
+.pricing-card { text-align: center; position: relative; }
+
+.pricing-card.featured { border: 3px solid var(--green); }
+
+.pricing-card .badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--green); color: white; font-size: 0.72rem; font-weight: 800; padding: 0.25rem 1rem; border-radius: 50px; white-space: nowrap; }
+
+.price { font-size: 2.2rem; font-weight: 900; color: var(--green); margin: 0.5rem 0 0.25rem; }
+
+.price span { font-size: 1rem; color: var(--muted); font-weight: 600; }
+
+.pricing-card h3 { font-size: 1.1rem; font-weight: 800; }
+
+.pricing-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+
+.pricing-card ul { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+
+.pricing-card li { font-size: 0.85rem; padding: 0.35rem 0; border-bottom: 1px dashed var(--green-mid); display: flex; align-items: center; gap: 0.5rem; color: var(--muted); }
+
+.pricing-card li::before { content: "✓"; color: var(--green); font-weight: 800; }
+
+
+
+/* ===== PAGE: HOW IT WORKS ===== */
+
+.timeline { position: relative; padding-left: 3rem; }
+
+.timeline::before { content: ''; position: absolute; left: 0.9rem; top: 0; bottom: 0; width: 2px; background: var(--green-mid); }
+
+.tl-item { position: relative; margin-bottom: 2.5rem; }
+
+.tl-dot { position: absolute; left: -2.1rem; top: 0.2rem; width: 20px; height: 20px; background: var(--green); border-radius: 50%; border: 3px solid var(--bg); }
+
+.tl-item h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.35rem; }
+
+.tl-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+.tl-tag { display: inline-block; background: var(--green-pale); color: var(--green); font-size: 0.7rem; font-weight: 800; padding: 0.2rem 0.7rem; border-radius: 50px; margin-bottom: 0.4rem; }
+
+.faq-item { border-bottom: 1px solid var(--green-mid); }
+
+.faq-q { width: 100%; background: none; border: none; text-align: left; padding: 1.1rem 0; font-family: var(--font); font-size: 0.95rem; font-weight: 800; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+
+.faq-q:hover { color: var(--green); }
+
+.faq-a { font-size: 0.88rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.7; display: none; }
+
+.faq-a.open { display: block; }
+
+.faq-icon { font-size: 1.2rem; color: var(--green); transition: transform 0.2s; }
+
+.faq-icon.open { transform: rotate(45deg); }
+
+
+
+/* ===== PAGE: CONTACT ===== */
+
+.contact-info-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: white; border-radius: 16px; box-shadow: var(--shadow); transition: transform 0.2s; }
+
+.contact-info-card:hover { transform: translateY(-2px); }
+
+.contact-icon { font-size: 1.8rem; width: 50px; height: 50px; background: var(--green-pale); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.contact-info-card h4 { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.15rem; }
+
+.contact-info-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.5; }
+
+.action-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.55rem; font-size: 0.8rem; font-weight: 800; padding: 0.38rem 0.9rem; border-radius: 50px; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
+
+.action-link:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.wa-btn { background: #25D366; color: white; }
+
+.em-btn { background: #4285F4; color: white; }
+
+.call-btn { background: var(--green); color: white; }
+
+/* quick strip */
+
+.quick-strip { display: flex; gap: 0.85rem; flex-wrap: wrap; padding: 1.15rem 1.4rem; background: var(--green-pale); border-radius: 16px; align-items: center; margin-bottom: 2rem; }
+
+.quick-strip-label { font-size: 0.85rem; font-weight: 800; color: var(--green); flex: 0 0 auto; }
+
+.qc-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.25rem; border-radius: 50px; font-family: var(--font); font-weight: 800; font-size: 0.86rem; cursor: pointer; border: none; transition: transform 0.15s, opacity 0.2s; text-decoration: none; }
+
+.qc-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+.qc-email { background: #4285F4; color: white; }
+
+.qc-whatsapp { background: #25D366; color: white; }
+
+.qc-call { background: var(--green); color: white; }
+
+/* form */
+
+.form-group { margin-bottom: 1.2rem; }
+
+.form-group label { display: block; font-size: 0.85rem; font-weight: 800; color: var(--text); margin-bottom: 0.4rem; }
+
+.req { color: #e05050; margin-left: 2px; }
+
+.form-group input, .form-group select, .form-group textarea {
+
+  width: 100%; padding: 0.75rem 1rem;
+
+  border: 2px solid var(--green-mid); border-radius: 12px;
+
+  font-family: var(--font); font-size: 0.9rem; color: var(--text);
+
+  background: var(--bg); outline: none; transition: border 0.2s, background 0.2s;
+
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); background: white; }
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.form-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-top: 0.25rem; }
+
+.form-note { font-size: 0.76rem; color: var(--muted); margin-top: 0.7rem; }
+
+/* WhatsApp floating bubble */
+
+.wa-float { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 999; width: 58px; height: 58px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.5); font-size: 1.65rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; animation: waWobble 3s ease-in-out infinite; }
+
+.wa-float:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.65); animation: none; }
+
+@keyframes waWobble { 0%,90%,100%{transform:scale(1)} 93%{transform:scale(1.08)} 96%{transform:scale(0.97)} }
+
+.wa-tooltip { position: fixed; bottom: 2.3rem; right: 4.8rem; z-index: 998; background: var(--text); color: white; font-size: 0.76rem; font-weight: 700; padding: 0.42rem 0.9rem; border-radius: 50px; white-space: nowrap; font-family: var(--font); pointer-events: none; opacity: 0; transition: opacity 0.2s; }
+
+/* drop-off */
+
+.drop-location { background: white; border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: var(--shadow); display: flex; gap: 1rem; align-items: flex-start; transition: transform 0.2s; }
+
+.drop-location:hover { transform: translateY(-3px); }
+
+.drop-location .icon { font-size: 1.5rem; }
+
+.drop-location h4 { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.15rem; }
+
+.drop-location p { font-size: 0.8rem; color: var(--muted); }
+
+.drop-location .hours { font-size: 0.75rem; color: var(--green); font-weight: 700; margin-top: 0.3rem; }
+
+
+
+/* ===== PCB SVG ===== */
+
+/* included inline */
+
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+  nav { padding: 0 1.5rem; }
+
+  .nav-links, .nav-btn { display: none; }
+
+  .hamburger { display: block; }
+
+  .section { padding: 3rem 1.5rem; }
+
+  .page-hero { padding: 2.5rem 1.5rem; }
+
+  .stats-bar { padding: 1.2rem 1.5rem; }
+
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+
+  .grid-auto { grid-template-columns: 1fr 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+
+  .devices-showcase { grid-template-columns: 1fr 1fr; }
+
+  .service-big-card { flex-direction: column; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .hero-home h1 { font-size: 2rem; }
+
+  footer { padding: 2rem 1.5rem 1rem; }
+
+}
+
+@media (max-width: 540px) {
+
+  .grid-auto { grid-template-columns: 1fr 1fr; }
+
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .cert-row { flex-direction: column; }
+
+}
+
 </style>
+
 </head>
+
 <body>
 
-<!-- NAV -->
+
+
+<!-- ===== NAV ===== -->
+
 <nav>
-  <a href="#" class="logo">
-    <div class="logo-icon">NG</div>
-    <div class="logo-text">NextGen <span>E-Waste</span></div>
-  </a>
-  <ul>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#waste">We Accept</a></li>
-    <li><a href="#targets">Who We Serve</a></li>
-    <li><a href="#contact" class="nav-cta">Get a Pickup</a></li>
+
+  <div class="logo" onclick="showPage('home')">♻️ NextGen E-Waste</div>
+
+  <ul class="nav-links">
+
+    <li><a href="#" onclick="showPage('home');return false;" id="nav-home" class="active">🏠 Home</a></li>
+
+    <li><a href="#" onclick="showPage('about');return false;" id="nav-about">🌿 About Us</a></li>
+
+    <li><a href="#" onclick="showPage('services');return false;" id="nav-services">⚙️ Services</a></li>
+
+    <li><a href="#" onclick="showPage('how');return false;" id="nav-how">📋 How It Works</a></li>
+
+    <li><a href="#" onclick="showPage('contact');return false;" id="nav-contact">📞 Contact</a></li>
+
   </ul>
+
+  <button class="nav-btn" onclick="showPage('contact')">Book Pickup</button>
+
+  <button class="hamburger" onclick="toggleMenu()" id="hamburger">☰</button>
+
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+<div class="mobile-menu" id="mobileMenu">
 
-  <div class="hero-badge">Pune's E-Waste Collection Partner</div>
+  <a href="#" onclick="showPage('home');toggleMenu();return false;" id="mnav-home" class="active">🏠 Home</a>
 
-  <h1>
-    Responsible E-Waste
-    <span class="highlight">Starts Here.</span>
-  </h1>
+  <a href="#" onclick="showPage('about');toggleMenu();return false;" id="mnav-about">🌿 About Us</a>
 
-  <p>We collect electronic scrap and waste from manufacturers, IT companies, and businesses across Pune — and route it to certified recyclers responsibly.</p>
+  <a href="#" onclick="showPage('services');toggleMenu();return false;" id="mnav-services">⚙️ Services</a>
 
-  <div class="hero-btns">
-    <a href="#contact" class="btn-primary">Schedule a Free Pickup</a>
-    <a href="#how" class="btn-outline">How It Works</a>
-  </div>
+  <a href="#" onclick="showPage('how');toggleMenu();return false;" id="mnav-how">📋 How It Works</a>
 
-  <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">50<span>+</span></div>
-      <div class="stat-label">Companies Served</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">10<span>T+</span></div>
-      <div class="stat-label">Waste Collected</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100<span>%</span></div>
-      <div class="stat-label">Authorized Disposal</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">0<span>₹</span></div>
-      <div class="stat-label">Cost to You</div>
-    </div>
-  </div>
-</section>
+  <a href="#" onclick="showPage('contact');toggleMenu();return false;" id="mnav-contact">📞 Contact</a>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">PCB Scrap Collection</span>
-    <span class="ticker-item">Free Doorstep Pickup</span>
-    <span class="ticker-item">Certified Disposal</span>
-    <span class="ticker-item">Server & IT Asset Recycling</span>
-    <span class="ticker-item">Zero Cost to Business</span>
-    <span class="ticker-item">Compliance Documentation</span>
-    <span class="ticker-item">Pune & Maharashtra Coverage</span>
-    <span class="ticker-item">PCB Scrap Collection</span>
-    <span class="ticker-item">Free Doorstep Pickup</span>
-    <span class="ticker-item">Certified Disposal</span>
-    <span class="ticker-item">Server & IT Asset Recycling</span>
-    <span class="ticker-item">Zero Cost to Business</span>
-    <span class="ticker-item">Compliance Documentation</span>
-    <span class="ticker-item">Pune & Maharashtra Coverage</span>
-  </div>
+  <button class="btn-green" onclick="showPage('contact');toggleMenu();" style="margin-top:0.5rem;">Book Pickup</button>
+
 </div>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="section-tag">The Process</div>
-  <h2 class="section-title">Simple. Hassle-Free. Responsible.</h2>
-  <p class="section-sub">We handle everything — from pickup scheduling to final disposal documentation. Your team does nothing.</p>
 
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-icon">📞</div>
-      <h3>Contact Us</h3>
-      <p>Call, WhatsApp, or fill the form. Tell us what material you have and your location in Pune.</p>
+
+<!-- ================================================================ -->
+
+<!-- PAGE: HOME -->
+
+<!-- ================================================================ -->
+
+<div class="page active" id="page-home">
+
+
+
+  <!-- Hero -->
+
+  <div class="page-hero">
+
+    <div class="hero-home" style="flex:1;min-width:280px">
+
+      <div class="section-tag">Mumbai's #1 Certified Recycler</div>
+
+      <h1>Recycle Your Old<br><span>Electronics</span> the Right Way 🌱</h1>
+
+      <p>Got an old phone, broken laptop, or dusty circuit board? Don't throw it in the trash! Bring it to us and we'll recycle it safely — good for you, great for the planet.</p>
+
+      <div class="hero-btns">
+
+        <button class="btn-green" onclick="showPage('how')">How It Works</button>
+
+        <button class="btn-white" onclick="showPage('services')">Our Services</button>
+
+      </div>
+
     </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-icon">📅</div>
-      <h3>Schedule Pickup</h3>
-      <p>We confirm a convenient date and time. No waiting, no delays — we come to your facility.</p>
+
+    <div class="devices-showcase" style="flex:0 0 340px">
+
+      <!-- Laptop card -->
+
+      <div class="dev-card">
+
+        <svg width="90" height="65" viewBox="0 0 90 65">
+
+          <rect x="8" y="4" width="74" height="46" rx="5" fill="#e8f5ee" stroke="#2e7d52" stroke-width="2"/>
+
+          <rect x="13" y="9" width="64" height="36" rx="2" fill="#c5e8d5"/>
+
+          <line x1="20" y1="20" x2="52" y2="20" stroke="#4caf80" stroke-width="2" stroke-linecap="round"/>
+
+          <line x1="20" y1="27" x2="46" y2="27" stroke="#4caf80" stroke-width="2" stroke-linecap="round"/>
+
+          <line x1="20" y1="34" x2="54" y2="34" stroke="#4caf80" stroke-width="2" stroke-linecap="round"/>
+
+          <rect x="2" y="50" width="86" height="11" rx="3" fill="#2e7d52"/>
+
+          <rect x="30" y="52" width="30" height="6" rx="3" fill="#4caf80"/>
+
+        </svg>
+
+        <span>Laptops</span>
+
+      </div>
+
+      <!-- Phone card -->
+
+      <div class="dev-card">
+
+        <svg width="46" height="74" viewBox="0 0 46 74">
+
+          <rect x="3" y="3" width="40" height="68" rx="8" fill="#e8f5ee" stroke="#2e7d52" stroke-width="2"/>
+
+          <rect x="7" y="12" width="32" height="42" rx="2" fill="#c5e8d5"/>
+
+          <circle cx="23" cy="7" r="2" fill="#4caf80"/>
+
+          <circle cx="23" cy="65" r="4" fill="#4caf80"/>
+
+          <rect x="11" y="16" width="10" height="10" rx="2" fill="#4caf80"/>
+
+          <rect x="25" y="16" width="10" height="10" rx="2" fill="#2e7d52"/>
+
+          <rect x="11" y="30" width="10" height="10" rx="2" fill="#2e7d52"/>
+
+          <rect x="25" y="30" width="10" height="10" rx="2" fill="#4caf80"/>
+
+        </svg>
+
+        <span>Phones</span>
+
+      </div>
+
+      <!-- PCB card -->
+
+      <div class="dev-card">
+
+        <svg width="90" height="65" viewBox="0 0 90 65">
+
+          <rect x="3" y="3" width="84" height="59" rx="4" fill="#1a5c2a" stroke="#0d3a18" stroke-width="1.5"/>
+
+          <line x1="14" y1="18" x2="44" y2="18" stroke="#f5c842" stroke-width="1.5"/>
+
+          <line x1="44" y1="18" x2="44" y2="35" stroke="#f5c842" stroke-width="1.5"/>
+
+          <line x1="44" y1="35" x2="76" y2="35" stroke="#f5c842" stroke-width="1.5"/>
+
+          <line x1="20" y1="48" x2="20" y2="35" stroke="#4caf80" stroke-width="1"/>
+
+          <rect x="28" y="21" width="22" height="18" rx="2" fill="#111" stroke="#f5c842" stroke-width="1"/>
+
+          <text x="39" y="33" text-anchor="middle" font-size="7" fill="#f5c842" font-family="monospace">CPU</text>
+
+          <rect x="10" y="26" width="7" height="10" rx="1" fill="#3a7bbf"/>
+
+          <rect x="66" y="20" width="7" height="10" rx="1" fill="#3a7bbf"/>
+
+          <rect x="52" y="46" width="12" height="6" rx="1" fill="#c87020"/>
+
+          <circle cx="12" cy="12" r="2.5" fill="#f5c842"/>
+
+          <circle cx="78" cy="12" r="2.5" fill="#f5c842"/>
+
+          <circle cx="12" cy="55" r="2.5" fill="#f5c842"/>
+
+          <circle cx="78" cy="55" r="2.5" fill="#f5c842"/>
+
+        </svg>
+
+        <span>Circuit Boards</span>
+
+      </div>
+
+      <!-- TV card -->
+
+      <div class="dev-card">
+
+        <svg width="90" height="68" viewBox="0 0 90 68">
+
+          <rect x="4" y="4" width="82" height="50" rx="5" fill="#e8f5ee" stroke="#2e7d52" stroke-width="2"/>
+
+          <rect x="9" y="9" width="72" height="40" rx="2" fill="#c5e8d5"/>
+
+          <rect x="15" y="14" width="30" height="20" rx="2" fill="#4caf80" opacity="0.5"/>
+
+          <rect x="50" y="14" width="26" height="8" rx="2" fill="#2e7d52" opacity="0.4"/>
+
+          <rect x="50" y="25" width="26" height="6" rx="2" fill="#2e7d52" opacity="0.3"/>
+
+          <rect x="37" y="54" width="16" height="7" rx="2" fill="#2e7d52"/>
+
+          <rect x="28" y="61" width="34" height="4" rx="2" fill="#1a2e22"/>
+
+        </svg>
+
+        <span>Televisions</span>
+
+      </div>
+
     </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-icon">🚛</div>
-      <h3>We Collect</h3>
-      <p>Our team arrives, loads the material, and handles all the logistics at zero cost to you.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div class="step-icon">🏭</div>
-      <h3>Authorized Disposal</h3>
-      <p>Material goes directly to MPCB & CPCB authorized recycling facilities. No dumping, ever.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">05</div>
-      <div class="step-icon">📄</div>
-      <h3>You Get Documentation</h3>
-      <p>Receive a Certificate of Recycling and full paperwork for your compliance and audit records.</p>
-    </div>
+
   </div>
-</section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="section-tag">What We Do</div>
-  <h2 class="section-title">Our Services</h2>
-  <p class="section-sub">End-to-end e-waste management for businesses of all sizes across Pune and Maharashtra.</p>
 
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">🏭</div>
-      <h3>PCB & Manufacturing Scrap</h3>
-      <p>We collect PCB offcuts, rejected boards, SMT line waste, solder dross, and fabrication rejects directly from your production floor.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">💻</div>
-      <h3>IT Asset Collection</h3>
-      <p>Bulk pickup of retired laptops, desktops, servers, networking equipment, and peripherals from IT companies and BPOs.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">⚙️</div>
-      <h3>Machinery & Equipment</h3>
-      <p>End-of-life industrial machines, PCB manufacturing equipment, and electromechanical systems collected and responsibly dismantled.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📦</div>
-      <h3>Component & Dead Stock</h3>
-      <p>Expired or damaged electronic components, dead stock inventories, and component reels from dealers and distributors.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📄</div>
-      <h3>Compliance Documentation</h3>
-      <p>Every pickup comes with a Certificate of Recycling and documentation required under E-Waste Management Rules 2022.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔄</div>
-      <h3>Scheduled Collections</h3>
-      <p>Set up a recurring monthly or quarterly pickup schedule — we handle the logistics so your team never has to think about it.</p>
-    </div>
+
+  <!-- Stats bar -->
+
+  <div class="stats-bar">
+
+    <div class="stat"><div class="stat-num">2.4M kg</div><div class="stat-label">Electronics Recycled</div></div>
+
+    <div class="stat"><div class="stat-num">800+</div><div class="stat-label">Happy Clients</div></div>
+
+    <div class="stat"><div class="stat-num">99.8%</div><div class="stat-label">Kept Out of Landfill</div></div>
+
+    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Pickup for Businesses</div></div>
+
   </div>
-</section>
 
-<!-- WHY US -->
-<section class="why">
-  <div class="why-grid">
-    <div>
-      <div class="section-tag">Why NextGen</div>
-      <h2 class="section-title">Why Businesses Trust Us</h2>
-      <p class="section-sub" style="margin-bottom: 40px;">We make e-waste disposal completely effortless — and keep you fully compliant.</p>
 
-      <ul class="why-list">
-        <li class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>Zero Cost Pickup</h4>
-            <p>We collect your scrap at no charge. In many cases, we even offer payment for high-value materials like copper-rich PCBs.</p>
+
+  <!-- What We Accept -->
+
+  <div class="section bg-white">
+
+    <div class="section-tag">What We Accept</div>
+
+    <h2 class="page-title">We Take All Kinds of E-Waste 📦</h2>
+
+    <p class="sub-text">From tiny earbuds to full servers — if it plugs in or runs on a battery, we'll take it!</p>
+
+    <div class="grid-4">
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">📱</div>
+
+        <h3>Phones & Tablets</h3>
+
+        <p>All brands, working or broken</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">💻</div>
+
+        <h3>Laptops & PCs</h3>
+
+        <p>Desktops, laptops, monitors</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">🔋</div>
+
+        <h3>Batteries</h3>
+
+        <p>Phone, laptop & car batteries</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">🖨️</div>
+
+        <h3>Printers & Scanners</h3>
+
+        <p>Inkjet, laser, all-in-one</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">📺</div>
+
+        <h3>TVs & Monitors</h3>
+
+        <p>Any size, LED, LCD, CRT</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">🟢</div>
+
+        <h3>Circuit Boards</h3>
+
+        <p>Motherboards, RAM, GPUs</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">🎧</div>
+
+        <h3>Headphones & Earbuds</h3>
+
+        <p>Wired or wireless, any brand</p>
+
+      </div>
+
+      <div class="card accept-card">
+
+        <div class="icon-wrap">🔌</div>
+
+        <h3>Cables & Chargers</h3>
+
+        <p>USB, HDMI, power adapters</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- How it works preview -->
+
+  <div class="section bg-pale">
+
+    <div class="section-tag">How It Works</div>
+
+    <h2 class="page-title">Just 4 Easy Steps! 👆</h2>
+
+    <p class="sub-text">Recycling your e-waste is super simple.</p>
+
+    <div class="grid-4">
+
+      <div class="card step-card">
+
+        <div class="step-num-circle">1</div>
+
+        <h3>Book Online</h3>
+
+        <p>Fill our simple form and tell us what devices you have.</p>
+
+      </div>
+
+      <div class="card step-card">
+
+        <div class="step-num-circle">2</div>
+
+        <h3>We Pick It Up</h3>
+
+        <p>Our team comes to your home or office — free for businesses!</p>
+
+      </div>
+
+      <div class="card step-card">
+
+        <div class="step-num-circle">3</div>
+
+        <h3>Safe Recycling</h3>
+
+        <p>We carefully sort, shred, and recover materials at our certified facility.</p>
+
+      </div>
+
+      <div class="card step-card">
+
+        <div class="step-num-circle">4</div>
+
+        <h3>Get Your Certificate</h3>
+
+        <p>Receive a recycling certificate showing your eco-commitment!</p>
+
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem;text-align:center">
+
+      <button class="btn-green" onclick="showPage('how')">Learn More Details →</button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- CTA Banner -->
+
+  <div class="section bg-dark" style="text-align:center">
+
+    <div class="section-tag white">Ready to Start?</div>
+
+    <h2 class="page-title white" style="margin-bottom:0.75rem">Book Your Free Pickup Today 🎉</h2>
+
+    <p style="color:rgba(255,255,255,0.6);margin-bottom:2rem;font-size:1rem">Join 800+ organisations across Mumbai making the planet greener.</p>
+
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+
+      <button class="btn-green" onclick="showPage('contact')">📦 Book a Pickup</button>
+
+      <button class="btn-outline-white" onclick="showPage('contact')">📍 Find Drop-off Point</button>
+
+    </div>
+
+  </div>
+
+
+
+</div><!-- end page-home -->
+
+
+
+
+
+<!-- ================================================================ -->
+<!-- PAGE: ABOUT -->
+
+<!-- ================================================================ -->
+
+<div class="page" id="page-about">
+
+
+
+  <!-- Hero -->
+
+  <div class="page-hero green">
+
+    <div style="flex:1;min-width:260px">
+
+      <div class="section-tag white">Our Story</div>
+
+      <h2 class="page-title white" style="font-size:clamp(2rem,4vw,3rem)">Making Mumbai<br>a Greener City 🌿</h2>
+
+      <p style="color:rgba(255,255,255,0.75);font-size:1rem;max-width:480px;margin-top:0.5rem">Founded in 2018 with one truck and a big dream — we're now Mumbai's most trusted e-waste recycling company.</p>
+
+    </div>
+
+    <div style="flex:0 0 auto">
+
+      <svg width="200" height="160" viewBox="0 0 200 160">
+
+        <circle cx="100" cy="80" r="70" fill="rgba(255,255,255,0.08)"/>
+
+        <circle cx="100" cy="80" r="50" fill="rgba(255,255,255,0.08)"/>
+
+        <text x="100" y="95" text-anchor="middle" font-size="52">🌍</text>
+
+        <circle cx="155" cy="35" r="18" fill="rgba(255,255,255,0.12)"/>
+
+        <text x="155" y="41" text-anchor="middle" font-size="18">♻️</text>
+
+        <circle cx="42" cy="130" r="15" fill="rgba(255,255,255,0.12)"/>
+
+        <text x="42" y="136" text-anchor="middle" font-size="14">🌱</text>
+
+      </svg>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Our Story -->
+
+  <div class="section bg-white">
+
+    <div class="grid-2" style="align-items:center;gap:3rem">
+
+      <div>
+
+        <div class="section-tag">Who We Are</div>
+
+        <h2 class="page-title">Born from a simple question:</h2>
+
+        <h3 style="color:var(--green);font-size:1.3rem;margin-bottom:1.25rem;font-weight:800">"Where does your old phone really go?"</h3>
+
+        <p class="about-story">In 2018, our founder Priya Sharma saw e-waste being dumped illegally on the outskirts of Mumbai. Shocked by the toxic pollution it caused, she left her IT job and started NextGen E-Waste Solutions from a tiny warehouse in Andheri.</p>
+
+        <p class="about-story">Today we operate across Mumbai and Pune with a team of 120+ certified technicians, a state-of-the-art processing facility, and partnerships with over 800 businesses and government departments.</p>
+
+        <p class="about-story">Our mission is simple: <strong style="color:var(--green)">zero e-waste in landfill by 2030.</strong></p>
+
+      </div>
+
+      <div>
+
+        <!-- Timeline illustration -->
+
+        <div style="padding:1.5rem;background:var(--green-pale);border-radius:20px">
+
+          <h4 style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin-bottom:1.25rem">Our Journey</h4>
+
+          <div style="display:flex;flex-direction:column;gap:0;position:relative;padding-left:1.75rem">
+
+            <div style="position:absolute;left:0.5rem;top:0.5rem;bottom:0.5rem;width:2px;background:var(--green-light);border-radius:2px"></div>
+
+            <div style="position:relative;padding-bottom:1.25rem">
+
+              <div style="position:absolute;left:-1.25rem;top:0.1rem;width:12px;height:12px;background:var(--green);border-radius:50%;border:2px solid var(--green-pale)"></div>
+
+              <p style="font-size:0.72rem;color:var(--green);font-weight:800">2018</p>
+
+              <p style="font-size:0.85rem;font-weight:700">Founded in Andheri with 1 truck</p>
+
+            </div>
+
+            <div style="position:relative;padding-bottom:1.25rem">
+
+              <div style="position:absolute;left:-1.25rem;top:0.1rem;width:12px;height:12px;background:var(--green);border-radius:50%;border:2px solid var(--green-pale)"></div>
+
+              <p style="font-size:0.72rem;color:var(--green);font-weight:800">2019</p>
+
+              <p style="font-size:0.85rem;font-weight:700">First corporate partner — TechCorp India</p>
+
+            </div>
+
+            <div style="position:relative;padding-bottom:1.25rem">
+
+              <div style="position:absolute;left:-1.25rem;top:0.1rem;width:12px;height:12px;background:var(--green);border-radius:50%;border:2px solid var(--green-pale)"></div>
+
+              <p style="font-size:0.72rem;color:var(--green);font-weight:800">2021</p>
+
+              <p style="font-size:0.85rem;font-weight:700">ISO 14001 & R2 Certification achieved</p>
+
+            </div>
+
+            <div style="position:relative;padding-bottom:1.25rem">
+
+              <div style="position:absolute;left:-1.25rem;top:0.1rem;width:12px;height:12px;background:var(--green);border-radius:50%;border:2px solid var(--green-pale)"></div>
+
+              <p style="font-size:0.72rem;color:var(--green);font-weight:800">2023</p>
+
+              <p style="font-size:0.85rem;font-weight:700">Expanded to Pune. Recycled 1M kg milestone!</p>
+
+            </div>
+
+            <div style="position:relative">
+
+              <div style="position:absolute;left:-1.25rem;top:0.1rem;width:12px;height:12px;background:var(--yellow);border-radius:50%;border:2px solid var(--green-pale)"></div>
+
+              <p style="font-size:0.72rem;color:var(--green);font-weight:800">2026</p>
+
+              <p style="font-size:0.85rem;font-weight:700">2.4M kg recycled, 800+ partners 🎉</p>
+
+            </div>
+
           </div>
-        </li>
-        <li class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>Pune-Based, Fast Response</h4>
-            <p>We operate locally across all Pune industrial zones — Bhosari MIDC, Hinjewadi, Kharadi, Magarpatta, and more.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Our Values -->
+
+  <div class="section bg-pale">
+
+    <div class="section-tag">What We Stand For</div>
+
+    <h2 class="page-title">Our Core Values 💚</h2>
+
+    <p class="sub-text">Everything we do is guided by these four principles.</p>
+
+    <div class="grid-4">
+
+      <div class="card value-card">
+
+        <div class="icon">🌍</div>
+
+        <h3>Planet First</h3>
+
+        <p style="font-size:0.83rem;color:var(--muted)">Every decision we make asks: is this good for the environment? No shortcuts, ever.</p>
+
+      </div>
+
+      <div class="card value-card">
+
+        <div class="icon">🔒</div>
+
+        <h3>Data Security</h3>
+
+        <p style="font-size:0.83rem;color:var(--muted)">Your data is destroyed properly before any device is recycled. Full certificate provided.</p>
+
+      </div>
+
+      <div class="card value-card">
+
+        <div class="icon">🤝</div>
+
+        <h3>Transparency</h3>
+
+        <p style="font-size:0.83rem;color:var(--muted)">You always know where your devices go. Track your recycling from pickup to final processing.</p>
+
+      </div>
+
+      <div class="card value-card">
+
+        <div class="icon">🏘️</div>
+
+        <h3>Community</h3>
+
+        <p style="font-size:0.83rem;color:var(--muted)">We train local youth in safe e-waste handling and give back 5% of profits to environmental NGOs.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Team -->
+
+  <div class="section bg-white">
+
+    <div class="section-tag">Meet the Team</div>
+
+    <h2 class="page-title">The People Behind the Mission 👋</h2>
+
+    <p class="sub-text">A passionate team of engineers, environmentalists, and recycling experts.</p>
+
+    <div class="grid-4">
+
+      <div class="card team-card">
+
+        <div class="team-avatar" style="background:#e8f5ee">👩‍💼</div>
+
+        <div class="role">Founder & CEO</div>
+
+        <h3>Priya Sharma</h3>
+
+        <p>Former IT professional, environmental activist, and the heart of NextGen.</p>
+
+      </div>
+
+      <div class="card team-card">
+
+        <div class="team-avatar" style="background:#deeaf8">👨‍🔬</div>
+
+        <div class="role">Head of Operations</div>
+
+        <h3>Rahul Mehta</h3>
+
+        <p>10 years in waste management. Makes sure every kg is tracked and processed correctly.</p>
+
+      </div>
+
+      <div class="card team-card">
+
+        <div class="team-avatar" style="background:#fde8d8">👩‍💻</div>
+
+        <div class="role">Data Security Lead</div>
+
+        <h3>Ananya Iyer</h3>
+
+        <p>Certified data destruction specialist ensuring your information stays safe.</p>
+
+      </div>
+
+      <div class="card team-card">
+
+        <div class="team-avatar" style="background:#fff3cd">👨‍🔧</div>
+
+        <div class="role">Chief Technician</div>
+
+        <h3>Deepak Patil</h3>
+
+        <p>Trained 50+ technicians in safe e-waste dismantling and material recovery.</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Certifications -->
+
+  <div class="section bg-pale">
+
+    <div class="section-tag">Trust & Safety</div>
+
+    <h2 class="page-title">Our Certifications 🏅</h2>
+
+    <p class="sub-text">We are certified, compliant, and audited every year.</p>
+
+    <div class="cert-row">
+
+      <div class="cert-badge"><div class="icon">🏆</div><div><h4>ISO 14001</h4><p>Environmental Management Systems</p></div></div>
+
+      <div class="cert-badge"><div class="icon">✅</div><div><h4>R2 Certified</h4><p>Responsible Recycling Standard</p></div></div>
+
+      <div class="cert-badge"><div class="icon">🔒</div><div><h4>RIOS Compliant</h4><p>Recycling Industry OS Standard</p></div></div>
+
+      <div class="cert-badge"><div class="icon">🌿</div><div><h4>Carbon Neutral</h4><p>100% renewable energy operations</p></div></div>
+
+      <div class="cert-badge"><div class="icon">🇮🇳</div><div><h4>WEEE Registered</h4><p>E-Waste (M&H) Rules 2016</p></div></div>
+
+    </div>
+
+  </div>
+
+
+
+</div><!-- end page-about -->
+
+
+
+
+
+<!-- ================================================================ -->
+
+<!-- PAGE: SERVICES -->
+
+<!-- ================================================================ -->
+
+<div class="page" id="page-services">
+
+
+
+  <!-- Hero -->
+
+  <div class="page-hero blue">
+
+    <div style="flex:1;min-width:260px">
+
+      <div class="section-tag blue">What We Offer</div>
+
+      <h2 class="page-title" style="font-size:clamp(2rem,4vw,3rem)">Complete E-Waste<br>Solutions ⚙️</h2>
+
+      <p style="color:var(--muted);font-size:1rem;max-width:480px;margin-top:0.5rem">From a single old phone to a full office IT asset disposal — we have a service for you.</p>
+
+    </div>
+
+    <div style="font-size:5rem;line-height:1">⚙️</div>
+
+  </div>
+
+
+
+  <!-- Services List -->
+
+  <div class="section bg-white">
+
+    <div class="section-tag">Our Services</div>
+
+    <h2 class="page-title">Everything You Need 🛠️</h2>
+
+    <p class="sub-text">Pick the service that fits your needs. Not sure? Contact us and we'll help!</p>
+
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+
+
+
+      <div class="card service-big-card">
+
+        <div class="s-icon">🏢</div>
+
+        <div>
+
+          <h3>Corporate IT Asset Disposal (ITAD)</h3>
+
+          <p>Got 10 old laptops? Or 500 decommissioned servers? We handle it all. Every device gets a serial number, full audit trail, and certificate of recycling. Perfect for companies doing office upgrades or data centre decommissions.</p>
+
+          <div class="tags"><span class="tag">Free Pickup</span><span class="tag">Serialised Report</span><span class="tag">Certificate</span><span class="tag">Data Wiping</span></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card service-big-card">
+
+        <div class="s-icon">🔒</div>
+
+        <div>
+
+          <h3>Certified Data Destruction</h3>
+
+          <p>We securely wipe or physically shred hard drives and storage devices following NIST 800-88 standards. Available on-site at your location or in our secure facility. You watch it happen and get a witnessed certificate.</p>
+
+          <div class="tags"><span class="tag">NIST 800-88</span><span class="tag">On-site Option</span><span class="tag">Witnessed</span><span class="tag">GDPR Compliant</span></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card service-big-card">
+
+        <div class="s-icon">🏠</div>
+
+        <div>
+
+          <h3>Home Pickup Service</h3>
+
+          <p>Book online and our team comes to your home at a convenient time. We accept any quantity — even just one old phone! Great for families doing a tech spring-clean. Completely free for large items like TVs and computers.</p>
+
+          <div class="tags"><span class="tag">Convenient Timing</span><span class="tag">Any Quantity</span><span class="tag">Free for Large Items</span></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card service-big-card">
+
+        <div class="s-icon">🔋</div>
+
+        <div>
+
+          <h3>Battery & Solar Panel Recovery</h3>
+
+          <p>Specialist handling for lithium-ion, lead-acid, and other battery types. Safe transport, processing, and rare material recovery. We also accept end-of-life solar panels from residential and commercial installations.</p>
+
+          <div class="tags"><span class="tag">Lithium-Ion</span><span class="tag">Lead-Acid</span><span class="tag">Solar Panels</span><span class="tag">Safe Transport</span></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card service-big-card">
+
+        <div class="s-icon">🟢</div>
+
+        <div>
+
+          <h3>PCB & Component Recovery</h3>
+
+          <p>Circuit boards, chips, and electronic components contain gold, silver, and rare metals. Our urban mining process recovers these materials at 40x the efficiency of traditional ore mining. We buy large quantities of PCBs from electronics manufacturers.</p>
+
+          <div class="tags"><span class="tag">Gold Recovery</span><span class="tag">Urban Mining</span><span class="tag">Bulk Purchase</span><span class="tag">ISO Certified</span></div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card service-big-card">
+
+        <div class="s-icon">📊</div>
+
+        <div>
+
+          <h3>ESG Reporting & Compliance</h3>
+
+          <p>Need to show your company's environmental impact to investors or regulators? We provide detailed, verified reports on how much e-waste you've recycled, carbon offset achieved, and compliance with Indian e-waste rules.</p>
+
+          <div class="tags"><span class="tag">Annual Reports</span><span class="tag">Carbon Credits</span><span class="tag">WEEE Compliance</span><span class="tag">Investor Ready</span></div>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Pricing -->
+
+  <div class="section bg-pale">
+
+    <div class="section-tag">Pricing</div>
+
+    <h2 class="page-title">Simple, Honest Pricing 💰</h2>
+
+    <p class="sub-text">No hidden fees. No confusing charges. Just straightforward recycling.</p>
+
+    <div class="grid-3">
+
+      <div class="card pricing-card">
+
+        <h3>Home & Individual</h3>
+
+        <div class="price">Free <span>/ basic items</span></div>
+
+        <p>For households with small quantities</p>
+
+        <ul>
+
+          <li>Drop-off at our centres</li>
+
+          <li>Up to 5 devices free</li>
+
+          <li>Certificate of recycling</li>
+
+          <li>Large items (TV/PC) free pickup</li>
+
+        </ul>
+
+        <button class="btn-green" onclick="showPage('contact')" style="width:100%">Get Started</button>
+
+      </div>
+
+      <div class="card pricing-card featured">
+
+        <div class="badge">⭐ Most Popular</div>
+
+        <h3>Business</h3>
+
+        <div class="price">₹0 <span>/ pickup</span></div>
+
+        <p>For companies with regular e-waste</p>
+
+        <ul>
+
+          <li>Free scheduled pickups</li>
+
+          <li>Unlimited devices</li>
+
+          <li>Data destruction included</li>
+
+          <li>Serialised audit report</li>
+
+          <li>Quarterly ESG report</li>
+
+        </ul>
+
+        <button class="btn-green" onclick="showPage('contact')" style="width:100%">Book Now</button>
+
+      </div>
+
+      <div class="card pricing-card">
+
+        <h3>Enterprise</h3>
+
+        <div class="price">Custom <span>/ quote</span></div>
+
+        <p>For large organisations & data centres</p>
+
+        <ul>
+
+          <li>Dedicated account manager</li>
+
+          <li>On-site data destruction</li>
+
+          <li>Full chain-of-custody docs</li>
+
+          <li>Annual ESG reporting</li>
+
+          <li>GDPR & compliance support</li>
+
+        </ul>
+
+        <button class="btn-white" onclick="showPage('contact')" style="width:100%">Get a Quote</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- CTA -->
+
+  <div class="section bg-dark" style="text-align:center">
+
+    <div class="section-tag white">Not Sure Which Service?</div>
+
+    <h2 class="page-title white" style="margin-bottom:0.75rem">Talk to Our Team 💬</h2>
+
+    <p style="color:rgba(255,255,255,0.6);margin-bottom:2rem">We'll help you find the right solution in under 5 minutes.</p>
+
+    <button class="btn-green" onclick="showPage('contact')">Contact Us Today</button>
+
+  </div>
+
+
+
+</div><!-- end page-services -->
+
+
+
+
+
+<!-- ================================================================ -->
+
+<!-- PAGE: HOW IT WORKS -->
+
+<!-- ================================================================ -->
+
+<div class="page" id="page-how">
+
+
+
+  <!-- Hero -->
+
+  <div class="page-hero yellow">
+
+    <div style="flex:1;min-width:260px">
+
+      <div class="section-tag yellow">Step by Step</div>
+
+      <h2 class="page-title" style="font-size:clamp(2rem,4vw,3rem)">How Recycling<br>Works With Us 📋</h2>
+
+      <p style="color:var(--muted);font-size:1rem;max-width:480px;margin-top:0.5rem">Simple, safe, and transparent — from your front door to our certified facility.</p>
+
+    </div>
+
+    <div style="font-size:5rem">📋</div>
+
+  </div>
+
+
+
+  <!-- Steps timeline -->
+
+  <div class="section bg-white">
+
+    <div class="grid-2" style="gap:3rem;align-items:start">
+
+      <div>
+
+        <div class="section-tag">The Process</div>
+
+        <h2 class="page-title">Your Device's Journey ♻️</h2>
+
+        <p class="sub-text">Here's exactly what happens, step by step.</p>
+
+        <div class="timeline">
+
+          <div class="tl-item">
+
+            <div class="tl-dot"></div>
+
+            <div class="tl-tag">Step 1</div>
+
+            <h3>📝 You Book Online or Call Us</h3>
+
+            <p>Fill in our quick form — tell us what devices you have and choose a pickup date. Takes less than 2 minutes! You'll get a confirmation email with your booking reference.</p>
+
           </div>
-        </li>
-        <li class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>Fully Authorized Chain</h4>
-            <p>All materials go exclusively to MPCB and CPCB authorized recyclers. Full traceability, no shortcuts.</p>
+
+          <div class="tl-item">
+
+            <div class="tl-dot"></div>
+
+            <div class="tl-tag">Step 2</div>
+
+            <h3>🚚 Our Team Comes to You</h3>
+
+            <p>A trained NextGen technician arrives at your address at the scheduled time. They'll inventory every device, label it with a unique serial number, and load it into our secure, GPS-tracked vehicle.</p>
+
           </div>
-        </li>
-        <li class="why-item">
-          <div class="why-check">✓</div>
-          <div>
-            <h4>Compliance-Ready Documentation</h4>
-            <p>Certificates and records issued for every consignment — ready for internal audits, ISO compliance, and regulatory checks.</p>
+
+          <div class="tl-item">
+
+            <div class="tl-dot"></div>
+
+            <div class="tl-tag">Step 3</div>
+
+            <h3>🔒 Data is Destroyed First</h3>
+
+            <p>Before any device is dismantled, we wipe all storage media following NIST 800-88 standards. Hard drives are either securely wiped (3-pass overwrite) or physically shredded. No data can ever be recovered.</p>
+
           </div>
-        </li>
-      </ul>
+
+          <div class="tl-item">
+
+            <div class="tl-dot"></div>
+
+            <div class="tl-tag">Step 4</div>
+
+            <h3>🔧 Devices Are Sorted & Assessed</h3>
+
+            <p>Devices that can still work are tested and refurbished for reuse. This extends their life! Devices that can't be repaired are carefully dismantled into categories: plastics, metals, glass, circuit boards, batteries.</p>
+
+          </div>
+
+          <div class="tl-item">
+
+            <div class="tl-dot"></div>
+
+            <div class="tl-tag">Step 5</div>
+
+            <h3>⚗️ Materials Are Recovered</h3>
+
+            <p>Circuit boards go through our urban mining process — we extract gold, silver, copper, and rare earth metals. Plastics are pelletised and sold to manufacturers. Metals are melted and reused. Nothing goes to landfill!</p>
+
+          </div>
+
+          <div class="tl-item">
+
+            <div class="tl-dot" style="background:var(--yellow)"></div>
+
+            <div class="tl-tag">Step 6</div>
+
+            <h3>🏅 You Get Your Certificate</h3>
+
+            <p>Within 5 business days, you receive your Certificate of Recycling with details of every device recycled, your carbon offset, and full compliance documentation for your records.</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PCB illustration panel -->
+
+      <div>
+
+        <div style="background:var(--text);border-radius:20px;padding:2rem;text-align:center">
+
+          <p style="color:rgba(255,255,255,0.5);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem">What Happens Inside a Circuit Board</p>
+
+          <svg width="100%" viewBox="0 0 300 210" style="max-width:300px">
+
+            <rect width="300" height="210" rx="10" fill="#1a5c2a"/>
+
+            <circle cx="16" cy="16" r="5" fill="none" stroke="#0d3a18" stroke-width="2"/>
+
+            <circle cx="284" cy="16" r="5" fill="none" stroke="#0d3a18" stroke-width="2"/>
+
+            <circle cx="16" cy="194" r="5" fill="none" stroke="#0d3a18" stroke-width="2"/>
+
+            <circle cx="284" cy="194" r="5" fill="none" stroke="#0d3a18" stroke-width="2"/>
+
+            <!-- traces -->
+
+            <line x1="30" y1="45" x2="120" y2="45" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="120" y1="45" x2="120" y2="95" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="30" y1="95" x2="70" y2="95" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="120" y1="95" x2="270" y2="95" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="190" y1="75" x2="190" y2="95" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="30" y1="155" x2="190" y2="155" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="230" y1="155" x2="270" y2="155" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="190" y1="120" x2="190" y2="155" stroke="#f5c842" stroke-width="2"/>
+
+            <line x1="30" y1="125" x2="70" y2="125" stroke="#4caf80" stroke-width="1.5"/>
+
+            <line x1="70" y1="125" x2="70" y2="155" stroke="#4caf80" stroke-width="1.5"/>
+
+            <line x1="70" y1="155" x2="120" y2="155" stroke="#4caf80" stroke-width="1.5"/>
+
+            <!-- CPU -->
+
+            <rect x="120" y="55" width="58" height="48" rx="4" fill="#111" stroke="#f5c842" stroke-width="2"/>
+
+            <text x="149" y="74" text-anchor="middle" font-size="8" fill="#f5c842" font-family="monospace">NEXTGEN</text>
+
+            <text x="149" y="87" text-anchor="middle" font-size="9" fill="#f5c842" font-family="monospace">CPU</text>
+
+            <!-- CPU pins top/bottom -->
+
+            <line x1="130" y1="53" x2="130" y2="55" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="140" y1="53" x2="140" y2="55" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="150" y1="53" x2="150" y2="55" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="160" y1="53" x2="160" y2="55" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="170" y1="53" x2="170" y2="55" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="130" y1="103" x2="130" y2="105" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="140" y1="103" x2="140" y2="105" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="150" y1="103" x2="150" y2="105" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="160" y1="103" x2="160" y2="105" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="170" y1="103" x2="170" y2="105" stroke="#f5c842" stroke-width="1.5"/>
+
+            <!-- Caps -->
+
+            <rect x="28" y="34" width="8" height="13" rx="2" fill="#3a7bbf" stroke="#1a4a8a" stroke-width="1"/>
+
+            <rect x="42" y="34" width="8" height="13" rx="2" fill="#3a7bbf" stroke="#1a4a8a" stroke-width="1"/>
+
+            <rect x="240" y="75" width="8" height="14" rx="2" fill="#3a7bbf" stroke="#1a4a8a" stroke-width="1"/>
+
+            <rect x="255" y="75" width="8" height="14" rx="2" fill="#3a7bbf" stroke="#1a4a8a" stroke-width="1"/>
+
+            <!-- Resistors -->
+
+            <rect x="195" y="62" width="17" height="7" rx="2" fill="#c87020"/>
+
+            <line x1="193" y1="65.5" x2="195" y2="65.5" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="212" y1="65.5" x2="214" y2="65.5" stroke="#f5c842" stroke-width="1.5"/>
+
+            <rect x="195" y="74" width="17" height="7" rx="2" fill="#a05010"/>
+
+            <line x1="193" y1="77.5" x2="195" y2="77.5" stroke="#f5c842" stroke-width="1.5"/>
+
+            <line x1="212" y1="77.5" x2="214" y2="77.5" stroke="#f5c842" stroke-width="1.5"/>
+
+            <!-- Small ICs -->
+
+            <rect x="240" y="115" width="38" height="26" rx="3" fill="#222" stroke="#f5c842" stroke-width="1.5"/>
+
+            <text x="259" y="131" text-anchor="middle" font-size="7" fill="#f5c842" font-family="monospace">RAM</text>
+
+            <rect x="28" y="162" width="38" height="26" rx="3" fill="#222" stroke="#4caf80" stroke-width="1.5"/>
+
+            <text x="47" y="178" text-anchor="middle" font-size="7" fill="#4caf80" font-family="monospace">BIOS</text>
+
+            <!-- LED -->
+
+            <circle cx="275" cy="45" r="5" fill="#00ff88" opacity="0.9"/>
+
+            <!-- header pins -->
+
+            <rect x="200" y="162" width="72" height="7" rx="2" fill="#888"/>
+
+            <line x1="208" y1="160" x2="208" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <line x1="218" y1="160" x2="218" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <line x1="228" y1="160" x2="228" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <line x1="238" y1="160" x2="238" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <line x1="248" y1="160" x2="248" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <line x1="258" y1="160" x2="258" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <line x1="268" y1="160" x2="268" y2="162" stroke="#ccc" stroke-width="1.5"/>
+
+            <text x="150" y="200" text-anchor="middle" font-size="8" fill="rgba(76,175,128,0.5)" font-family="monospace">NextGen PCB — 100% Recyclable</text>
+
+          </svg>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:1.25rem;text-align:left">
+
+            <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.75rem">
+
+              <p style="color:#f5c842;font-size:0.72rem;font-weight:800;margin-bottom:0.15rem">🟡 Gold traces</p>
+
+              <p style="color:rgba(255,255,255,0.5);font-size:0.72rem">Found in connectors & contacts</p>
+
+            </div>
+
+            <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.75rem">
+
+              <p style="color:#3a7bbf;font-size:0.72rem;font-weight:800;margin-bottom:0.15rem">🔵 Capacitors</p>
+
+              <p style="color:rgba(255,255,255,0.5);font-size:0.72rem">Contain aluminium & electrolyte</p>
+
+            </div>
+
+            <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.75rem">
+
+              <p style="color:#c87020;font-size:0.72rem;font-weight:800;margin-bottom:0.15rem">🟤 Resistors</p>
+
+              <p style="color:rgba(255,255,255,0.5);font-size:0.72rem">Contain carbon & metal film</p>
+
+            </div>
+
+            <div style="background:rgba(255,255,255,0.05);border-radius:10px;padding:0.75rem">
+
+              <p style="color:#4caf80;font-size:0.72rem;font-weight:800;margin-bottom:0.15rem">🟢 PCB substrate</p>
+
+              <p style="color:rgba(255,255,255,0.5);font-size:0.72rem">FR4 fibreglass, recovered & reused</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- did you know box -->
+
+        <div style="background:var(--green-pale);border-radius:16px;padding:1.25rem 1.5rem;margin-top:1.25rem">
+
+          <p style="font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin-bottom:0.5rem">💡 Did You Know?</p>
+
+          <p style="font-size:0.88rem;color:var(--muted)">One tonne of mobile phones contains more gold than one tonne of gold ore from a mine — and it takes 40x less energy to recover it!</p>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="why-visual">
-      <div style="font-family:'Syne',sans-serif; font-size:15px; font-weight:700; color:var(--white); margin-bottom:8px;">Our Impact Metrics</div>
-
-      <div class="metric-row">
-        <div class="metric-label"><span>PCB Scrap Collected</span><span>2.4 MT / month</span></div>
-        <div class="metric-bar-bg"><div class="metric-bar" style="width:80%;animation-delay:0.1s"></div></div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-label"><span>IT Asset Recovery Rate</span><span>94%</span></div>
-        <div class="metric-bar-bg"><div class="metric-bar" style="width:94%;animation-delay:0.3s"></div></div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-label"><span>Client Retention</span><span>96%</span></div>
-        <div class="metric-bar-bg"><div class="metric-bar" style="width:96%;animation-delay:0.5s"></div></div>
-      </div>
-
-      <div class="metric-row">
-        <div class="metric-label"><span>Authorized Disposal Rate</span><span>100%</span></div>
-        <div class="metric-bar-bg"><div class="metric-bar" style="width:100%;animation-delay:0.7s"></div></div>
-      </div>
-
-      <div style="margin-top:12px; padding-top:20px; border-top:1px solid var(--border); display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div style="text-align:center;">
-          <div style="font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:var(--accent);">50+</div>
-          <div style="font-size:11px; color:var(--gray); text-transform:uppercase; letter-spacing:0.08em;">Business Partners</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-family:'Syne',sans-serif; font-size:24px; font-weight:800; color:var(--accent);">48hr</div>
-          <div style="font-size:11px; color:var(--gray); text-transform:uppercase; letter-spacing:0.08em;">Avg Pickup Time</div>
-        </div>
-      </div>
-    </div>
   </div>
-</section>
 
-<!-- WHAT WE ACCEPT -->
-<section id="waste">
-  <div class="section-tag">Material Types</div>
-  <h2 class="section-title">What We Accept</h2>
-  <p class="section-sub">From PCB scrap to full server racks — if it's electronic, we'll take it.</p>
 
-  <div class="waste-grid">
-    <div class="waste-chip"><div class="emoji">🖥️</div><span>Laptops & Desktops</span></div>
-    <div class="waste-chip"><div class="emoji">🖨️</div><span>Printers & Scanners</span></div>
-    <div class="waste-chip"><div class="emoji">📱</div><span>Mobile Phones & Tablets</span></div>
-    <div class="waste-chip"><div class="emoji">🔌</div><span>Power Supplies & UPS</span></div>
-    <div class="waste-chip"><div class="emoji">🔧</div><span>PCB Scrap & Boards</span></div>
-    <div class="waste-chip"><div class="emoji">🏗️</div><span>Servers & Networking</span></div>
-    <div class="waste-chip"><div class="emoji">🔋</div><span>Batteries & Inverters</span></div>
-    <div class="waste-chip"><div class="emoji">⚙️</div><span>Industrial Machines</span></div>
-    <div class="waste-chip"><div class="emoji">📡</div><span>Telecom Equipment</span></div>
-    <div class="waste-chip"><div class="emoji">💡</div><span>LED & Lighting</span></div>
-    <div class="waste-chip"><div class="emoji">🎛️</div><span>Control Panels</span></div>
-    <div class="waste-chip"><div class="emoji">🔩</div><span>Component Rejects</span></div>
+
+  <!-- FAQ -->
+
+  <div class="section bg-pale">
+
+    <div class="grid-2" style="gap:3rem;align-items:start">
+
+      <div>
+
+        <div class="section-tag">FAQ</div>
+
+        <h2 class="page-title">Common Questions ❓</h2>
+
+        <p class="sub-text">Still not sure? Here are the most common questions we get.</p>
+
+      </div>
+
+      <div>
+
+        <div class="faq-item">
+
+          <button class="faq-q" onclick="toggleFaq(this)">Is it really free? <span class="faq-icon">+</span></button>
+
+          <div class="faq-a">Yes! For businesses and large household items (TVs, computers, fridges with electronics), pickup is completely free. For small residential quantities, drop-off at our centres is always free. We may charge a small fee only for certified on-site data destruction.</div>
+
+        </div>
+
+        <div class="faq-item">
+
+          <button class="faq-q" onclick="toggleFaq(this)">What happens to my personal data? <span class="faq-icon">+</span></button>
+
+          <div class="faq-a">All storage devices — hard drives, SSDs, phones, tablets — are wiped or shredded before any recycling happens. We follow NIST 800-88 standards and provide a certificate of data destruction for every device.</div>
+
+        </div>
+
+        <div class="faq-item">
+
+          <button class="faq-q" onclick="toggleFaq(this)">Can I drop off just one old phone? <span class="faq-icon">+</span></button>
+
+          <div class="faq-a">Absolutely! Our drop-off centres in Andheri, Bandra, and Thane accept any quantity from a single earphone to a car-full of electronics. No appointment needed for drop-offs.</div>
+
+        </div>
+
+        <div class="faq-item">
+
+          <button class="faq-q" onclick="toggleFaq(this)">Do you buy old electronics? <span class="faq-icon">+</span></button>
+
+          <div class="faq-a">We do buy large quantities of PCBs and circuit boards from electronics manufacturers and IT companies. For individual consumer devices, we offer free recycling but don't pay for single items. Contact us for bulk purchases.</div>
+
+        </div>
+
+        <div class="faq-item">
+
+          <button class="faq-q" onclick="toggleFaq(this)">How long does it take? <span class="faq-icon">+</span></button>
+
+          <div class="faq-a">We can usually schedule a pickup within 48 hours. Your recycling certificate and report are sent within 5 business days of processing. Enterprise clients with SLA agreements receive same-week service.</div>
+
+        </div>
+
+        <div class="faq-item">
+
+          <button class="faq-q" onclick="toggleFaq(this)">Are you legally certified? <span class="faq-icon">+</span></button>
+
+          <div class="faq-a">Yes! We are registered under India's E-Waste (Management) Rules 2016, ISO 14001 certified, R2 certified, and RIOS compliant. All certifications are available to view on request.</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-</section>
 
-<!-- WHO WE SERVE -->
-<section class="targets" id="targets">
-  <div class="section-tag">Our Clients</div>
-  <h2 class="section-title">Who We Serve</h2>
-  <p class="section-sub">Any business that generates electronic waste in Pune and Maharashtra.</p>
 
-  <div class="target-cards">
-    <div class="target-card">
-      <div class="target-icon">🏭</div>
-      <h3>PCB & EMS Manufacturers</h3>
-      <p>Fabrication scrap, SMT waste, rejected boards, and old machinery from Bhosari MIDC and surrounding industrial areas.</p>
+
+</div><!-- end page-how -->
+
+
+
+
+
+<!-- ================================================================ -->
+
+<!-- PAGE: CONTACT -->
+
+<!-- ================================================================ -->
+
+<div class="page" id="page-contact">
+
+
+
+  <!-- Hero -->
+
+  <div class="page-hero" style="background:linear-gradient(135deg,#e8f5ee,#d0edde)">
+
+    <div style="flex:1;min-width:260px">
+
+      <div class="section-tag">Get In Touch</div>
+
+      <h2 class="page-title" style="font-size:clamp(2rem,4vw,3rem)">Let's Talk Recycling 📞</h2>
+
+      <p style="color:var(--muted);font-size:1rem;max-width:480px;margin-top:0.5rem">Book a pickup, ask a question, or reach us directly via WhatsApp or Email — we're here to help!</p>
+
     </div>
-    <div class="target-card">
-      <div class="target-icon">💻</div>
-      <h3>IT & BPO Companies</h3>
-      <p>Bulk laptop, desktop, and server retirement from Hinjewadi, Kharadi, and Magarpatta tech corridors.</p>
+
+    <!-- Quick contact icons hero -->
+
+    <div style="display:flex;flex-direction:column;gap:0.75rem;flex:0 0 auto">
+
+      <a href="mailto:hello@nextgenewaste.in" class="qc-btn qc-email" style="font-size:1rem;padding:0.85rem 1.6rem">
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+
+        Send an Email
+
+      </a>
+
+      <a href="https://wa.me/919876543210?text=Hi%20NextGen%20E-Waste%2C%20I%20want%20to%20book%20a%20pickup!" target="_blank" class="qc-btn qc-whatsapp" style="font-size:1rem;padding:0.85rem 1.6rem">
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.478 2 2 6.477 2 12c0 1.99.583 3.842 1.586 5.4L2 22l4.74-1.565A9.96 9.96 0 0012 22c5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+
+        Chat on WhatsApp
+
+      </a>
+
+      <a href="tel:+912245678900" class="qc-btn qc-call" style="font-size:1rem;padding:0.85rem 1.6rem">
+
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+
+        Call Us Now
+
+      </a>
+
     </div>
-    <div class="target-card">
-      <div class="target-icon">🏦</div>
-      <h3>Banks & NBFCs</h3>
-      <p>High device turnover from branch offices and data centers — all handled with full compliance documentation.</p>
-    </div>
-    <div class="target-card">
-      <div class="target-icon">🏥</div>
-      <h3>Hospitals & Labs</h3>
-      <p>Medical electronic equipment, diagnostic machines, and IT assets from healthcare facilities.</p>
-    </div>
-    <div class="target-card">
-      <div class="target-icon">🏫</div>
-      <h3>Schools & Colleges</h3>
-      <p>Computer labs, AV equipment, and electronic assets from educational institutions across Pune.</p>
-    </div>
-    <div class="target-card">
-      <div class="target-icon">🔌</div>
-      <h3>Component Dealers</h3>
-      <p>Dead stock, expired components, and return material from electronics distributors and wholesalers.</p>
-    </div>
+
   </div>
-</section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="section-tag">Get In Touch</div>
-  <h2 class="section-title">Request a Free Pickup</h2>
 
-  <div class="contact-grid">
-    <div class="contact-info">
-      <p style="font-size:17px; color:var(--gray); font-weight:300; line-height:1.8; max-width:420px;">
-        Tell us what you have and where you are. We'll get back to you within 24 hours to schedule a free collection from your facility.
-      </p>
 
-      <div class="contact-item">
-        <div class="contact-dot">📍</div>
-        <div>
-          <h4>Location</h4>
-          <p>Pune, Maharashtra</p>
+  <!-- Main Contact Section -->
+
+  <div class="section bg-white">
+
+    <div class="grid-2" style="gap:3rem;align-items:start">
+
+
+      <!-- FORM -->
+
+      <div>
+
+        <div class="section-tag">Send Us a Message</div>
+
+        <h2 class="page-title" style="font-size:1.65rem;margin-bottom:0.5rem">Book a Pickup or Ask Us Anything 📦</h2>
+
+        <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem">Fill in the form below and we'll get back to you within 24 hours. Or contact us directly using the buttons above!</p>
+
+
+
+        <!-- Quick contact strip inside form panel -->
+
+        <div class="quick-strip">
+
+          <span class="quick-strip-label">⚡ Quick contact:</span>
+
+          <a href="mailto:hello@nextgenewaste.in" class="qc-btn qc-email">
+
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+
+            Email Us
+
+          </a>
+
+          <a href="https://wa.me/919876543210?text=Hi%20NextGen%20E-Waste%2C%20I%20want%20to%20book%20a%20pickup!" target="_blank" class="qc-btn qc-whatsapp">
+
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.478 2 2 6.477 2 12c0 1.99.583 3.842 1.586 5.4L2 22l4.74-1.565A9.96 9.96 0 0012 22c5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+
+            WhatsApp
+
+          </a>
+
+          <a href="tel:+912245678900" class="qc-btn qc-call">
+
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+
+            Call
+
+          </a>
+
         </div>
+
+
+
+        <!-- Form -->
+
+        <div id="contactForm">
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Your Name <span class="req">*</span></label>
+
+              <input type="text" placeholder="e.g. Priya Sharma" id="fname"/>
+
+            </div>
+
+            <div class="form-group">
+
+              <label>Phone Number <span class="req">*</span></label>
+
+              <input type="tel" placeholder="+91 98765 43210" id="fphone"/>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label>Email Address <span class="req">*</span></label>
+
+            <input type="email" placeholder="your@email.com" id="femail"/>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label>Service Needed <span class="req">*</span></label>
+
+              <select id="fservice">
+
+                <option value="">— Select —</option>
+
+                <option>Home Pickup</option>
+
+                <option>Business / Corporate ITAD</option>
+
+                <option>Certified Data Destruction</option>
+
+                <option>Battery Recycling</option>
+
+                <option>PCB / Component Recovery</option>
+
+                <option>Solar Panel Recycling</option>
+
+                <option>ESG Reporting</option>
+
+                <option>Just a Question</option>
+
+              </select>
+
+            </div>
+
+            <div class="form-group">
+
+              <label>Preferred Date</label>
+
+              <input type="date" id="fdate"/>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label>Your Address / Pickup Location <span class="req">*</span></label>
+
+            <input type="text" placeholder="e.g. Bandra West, Mumbai 400050" id="faddress"/>
+
+          </div>
+
+          <div class="form-group">
+
+            <label>What devices do you have?</label>
+
+            <textarea placeholder="e.g. 3 old laptops, 2 phones, 1 TV, some cables and chargers..." id="fmessage"></textarea>
+
+          </div>
+
+          <div class="form-group">
+
+            <label>How did you hear about us?</label>
+
+            <select id="fhear">
+
+              <option value="">— Optional —</option>
+
+              <option>Google Search</option>
+
+              <option>WhatsApp / Social Media</option>
+
+              <option>Friend or Colleague</option>
+
+              <option>Newspaper / Magazine</option>
+
+              <option>Our Drop-off Centre</option>
+
+              <option>Other</option>
+
+            </select>
+
+          </div>
+
+          <div class="form-actions">
+
+            <button class="btn-green" style="flex:1;font-size:0.95rem;padding:0.88rem" onclick="submitForm()">📦 Submit Request</button>
+
+            <a href="https://wa.me/919876543210?text=Hi%20NextGen%20E-Waste%2C%20I%20want%20to%20book%20a%20pickup!" target="_blank" class="qc-btn qc-whatsapp" style="flex:1;justify-content:center;font-size:0.9rem;padding:0.88rem 1rem">
+
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.478 2 2 6.477 2 12c0 1.99.583 3.842 1.586 5.4L2 22l4.74-1.565A9.96 9.96 0 0012 22c5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+
+              Send via WhatsApp
+
+            </a>
+
+          </div>
+
+          <p class="form-note">🔒 Your details are safe with us. We never share your information with third parties.</p>
+
+        </div>
+
+
+
+        <!-- Success message -->
+
+        <div id="formSuccess" style="display:none;background:var(--green-pale);border-radius:16px;padding:2rem;text-align:center">
+
+          <div style="font-size:3rem;margin-bottom:0.75rem">🎉</div>
+
+          <h3 style="color:var(--green);font-size:1.25rem;font-weight:900;margin-bottom:0.5rem">Request Received!</h3>
+
+          <p style="color:var(--muted);margin-bottom:1rem">Thank you! We'll call or email you within 24 hours to confirm your pickup details.</p>
+
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.5rem">Want a faster reply? Message us on WhatsApp:</p>
+
+          <div style="display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap">
+
+            <a href="https://wa.me/919876543210" target="_blank" class="qc-btn qc-whatsapp">💬 Chat on WhatsApp</a>
+
+            <button class="btn-white" onclick="resetForm()">Submit Another Request</button>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="contact-item">
-        <div class="contact-dot">📞</div>
-        <div>
-          <h4>Phone / WhatsApp</h4>
-          <p>+91 XXXXX XXXXX</p>
+
+
+      <!-- CONTACT INFO SIDEBAR -->
+
+      <div style="display:flex;flex-direction:column;gap:1.1rem">
+
+        <div class="section-tag">Direct Contact</div>
+
+        <h2 class="page-title" style="font-size:1.65rem;margin-bottom:0.25rem">Reach Us Directly 📬</h2>
+
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:0.5rem">Prefer to contact us without a form? Use any of these channels — we respond fast!</p>
+
+
+
+        <!-- WhatsApp card -->
+
+        <div class="contact-info-card" style="border-left:4px solid #25D366">
+
+          <div class="contact-icon" style="background:#e7faf0">
+
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.478 2 2 6.477 2 12c0 1.99.583 3.842 1.586 5.4L2 22l4.74-1.565A9.96 9.96 0 0012 22c5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+
+          </div>
+
+          <div>
+
+            <h4>WhatsApp</h4>
+
+            <p>+91 98765 43210<br>Fastest response — usually within 15 mins!</p>
+
+            <a href="https://wa.me/919876543210?text=Hi%20NextGen%20E-Waste%2C%20I%20want%20to%20book%20a%20pickup!" target="_blank" class="action-link wa-btn">
+
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.478 2 2 6.477 2 12c0 1.99.583 3.842 1.586 5.4L2 22l4.74-1.565A9.96 9.96 0 0012 22c5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+
+              Message on WhatsApp
+
+            </a>
+
+            <a href="https://wa.me/919876543210?text=Hi%20NextGen%2C%20I%20need%20corporate%20ITAD%20services" target="_blank" class="action-link wa-btn" style="margin-left:0.5rem;background:#128C7E">
+
+              🏢 Corporate Enquiry
+
+            </a>
+
+          </div>
+
         </div>
+
+
+
+        <!-- Email card -->
+
+        <div class="contact-info-card" style="border-left:4px solid #4285F4">
+
+          <div class="contact-icon" style="background:#e8f0fb">
+
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+
+          </div>
+
+          <div>
+
+            <h4>Email Us</h4>
+
+            <p>hello@nextgenewaste.in (General)<br>corporate@nextgenewaste.in (Business)</p>
+
+            <a href="mailto:hello@nextgenewaste.in?subject=E-Waste%20Pickup%20Request&body=Hello%20NextGen%20Team%2C%0A%0AI%20would%20like%20to%20book%20a%20pickup.%0A%0AName%3A%0APhone%3A%0AAddress%3A%0ADevices%3A" class="action-link em-btn">
+
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+
+              Send Email (General)
+
+            </a>
+
+            <a href="mailto:corporate@nextgenewaste.in?subject=Corporate%20ITAD%20Enquiry" class="action-link em-btn" style="margin-left:0.5rem;background:#1a56db">
+
+              🏢 Corporate Email
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Phone card -->
+
+        <div class="contact-info-card" style="border-left:4px solid var(--green)">
+
+          <div class="contact-icon">
+
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2e7d52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.1a16 16 0 006 6l.61-.61a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+
+          </div>
+
+          <div>
+
+            <h4>Call Us</h4>
+
+            <p>+91 22 4567 8900 (Office, Mon–Sat 9–6)<br>+91 98765 43210 (Mobile / Urgent)</p>
+
+            <a href="tel:+912245678900" class="action-link call-btn">📞 Call Office</a>
+
+            <a href="tel:+919876543210" class="action-link call-btn" style="margin-left:0.5rem;background:#1a5c35">📱 Mobile</a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Address card -->
+
+        <div class="contact-info-card">
+
+          <div class="contact-icon">🏭</div>
+
+          <div>
+
+            <h4>Main Facility</h4>
+
+            <p>Plot 42, MIDC Industrial Area,<br>Andheri East, Mumbai — 400093</p>
+
+            <a href="https://maps.google.com/?q=Andheri+East+Mumbai" target="_blank" class="action-link" style="background:var(--text);color:white;margin-top:0.5rem">🗺️ Open in Maps</a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Hours -->
+
+        <div class="contact-info-card">
+
+          <div class="contact-icon">🕐</div>
+
+          <div>
+
+            <h4>Working Hours</h4>
+
+            <p>Monday – Saturday: 9:00 AM – 6:00 PM<br>Sunday: Drop-off centres only (10 AM – 2 PM)</p>
+
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="contact-item">
-        <div class="contact-dot">✉️</div>
-        <div>
-          <h4>Email</h4>
-          <p>hello@nextgenewaste.in</p>
-        </div>
-      </div>
-
-      <div class="contact-item">
-        <div class="contact-dot">🕐</div>
-        <div>
-          <h4>Working Hours</h4>
-          <p>Monday – Saturday, 9 AM – 7 PM</p>
-        </div>
-      </div>
     </div>
 
-    <div class="contact-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Rahul Sharma" />
-        </div>
-        <div class="form-group">
-          <label>Company Name</label>
-          <input type="text" placeholder="ABC Electronics Pvt. Ltd." />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Phone / WhatsApp</label>
-          <input type="tel" placeholder="+91 98765 43210" />
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="rahul@company.com" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Type of Waste</label>
-        <select>
-          <option value="">Select material type...</option>
-          <option>PCB Scrap & Rejected Boards</option>
-          <option>IT Assets (Laptops / Desktops)</option>
-          <option>Servers & Networking Equipment</option>
-          <option>Industrial Machinery</option>
-          <option>Electronic Components</option>
-          <option>Mixed E-Waste</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Additional Details</label>
-        <textarea placeholder="Approximate quantity, location in Pune, any specific requirements..."></textarea>
-      </div>
-      <button class="submit-btn">Request Free Pickup →</button>
-    </div>
   </div>
-</section>
 
-<!-- FOOTER -->
+
+
+  <!-- Drop-off Locations -->
+
+  <div class="section bg-pale">
+
+    <div class="section-tag">Find Us</div>
+
+    <h2 class="page-title">Drop-off Locations in Mumbai 📍</h2>
+
+    <p class="sub-text">3 convenient locations. No appointment needed. Bring any quantity — even just one old phone!</p>
+
+    <div class="grid-3">
+
+      <div class="drop-location">
+
+        <div class="icon">📍</div>
+
+        <div>
+
+          <h4>Andheri East (Main Centre)</h4>
+
+          <p>Plot 42, MIDC Industrial Area, Andheri East</p>
+
+          <div class="hours">Mon–Sat: 9am–6pm · Sun: 10am–2pm</div>
+
+          <a href="https://wa.me/919876543210?text=Hi%2C%20I%27m%20coming%20to%20the%20Andheri%20drop-off%20today" target="_blank" class="action-link wa-btn" style="margin-top:0.6rem;font-size:0.73rem">💬 Notify us on WhatsApp</a>
+
+        </div>
+
+      </div>
+
+      <div class="drop-location">
+
+        <div class="icon">📍</div>
+
+        <div>
+
+          <h4>Bandra West</h4>
+
+          <p>Shop 5, Linking Road Market, Bandra West</p>
+
+          <div class="hours">Mon–Sat: 10am–7pm · Sun: Closed</div>
+
+          <a href="https://wa.me/919876543210?text=Hi%2C%20I%27m%20coming%20to%20the%20Bandra%20drop-off%20today" target="_blank" class="action-link wa-btn" style="margin-top:0.6rem;font-size:0.73rem">💬 Notify us on WhatsApp</a>
+
+        </div>
+
+      </div>
+
+      <div class="drop-location">
+
+        <div class="icon">📍</div>
+
+        <div>
+
+          <h4>Thane</h4>
+
+          <p>Ground Floor, Emerald Plaza, Thane West</p>
+
+          <div class="hours">Mon–Sat: 9am–5pm · Sun: 10am–1pm</div>
+
+          <a href="https://wa.me/919876543210?text=Hi%2C%20I%27m%20coming%20to%20the%20Thane%20drop-off%20today" target="_blank" class="action-link wa-btn" style="margin-top:0.6rem;font-size:0.73rem">💬 Notify us on WhatsApp</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Map placeholder -->
+
+    <div style="margin-top:2rem;background:white;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)">
+
+      <div style="background:#d0edde;height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem">
+
+        <div style="font-size:2.8rem">🗺️</div>
+
+        <p style="color:var(--green);font-weight:700;font-size:0.92rem">Find Us on Google Maps</p>
+
+        <p style="color:var(--muted);font-size:0.8rem">Search "NextGen E-Waste Solutions Mumbai"</p>
+
+        <a href="https://maps.google.com/?q=NextGen+E-Waste+Andheri+Mumbai" target="_blank" class="btn-green" style="font-size:0.85rem;padding:0.5rem 1.2rem">Open in Google Maps ↗</a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div><!-- end page-contact -->
+
+
+
+
+
+<!-- ===== FOOTER ===== -->
+
 <footer>
-  <div class="footer-left">
-    <div class="logo-icon" style="width:30px;height:30px;font-size:13px;">NG</div>
-    <span class="footer-copy">© 2025 NextGen E-Waste Solutions, Pune</span>
+
+  <div class="footer-grid">
+
+    <div>
+
+      <div class="footer-logo">♻️ NextGen E-Waste Solutions</div>
+
+      <p class="footer-about">Mumbai's most trusted certified e-waste recycler. Zero landfill. Total data security. Making the city greener one device at a time.</p>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h4>Pages</h4>
+
+      <ul>
+
+        <li onclick="showPage('home')">🏠 Home</li>
+
+        <li onclick="showPage('about')">🌿 About Us</li>
+
+        <li onclick="showPage('services')">⚙️ Services</li>
+
+        <li onclick="showPage('how')">📋 How It Works</li>
+
+        <li onclick="showPage('contact')">📞 Contact</li>
+
+      </ul>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h4>Services</h4>
+
+      <ul>
+
+        <li>Corporate ITAD</li>
+
+        <li>Data Destruction</li>
+
+        <li>Home Pickup</li>
+
+        <li>Battery Recovery</li>
+
+        <li>ESG Reporting</li>
+
+      </ul>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h4>Contact</h4>
+
+      <ul>
+
+        <li>📞 +91 22 4567 8900</li>
+
+        <li>✉️ hello@nextgenewaste.in</li>
+
+        <li>📍 Andheri East, Mumbai</li>
+
+        <li>🕐 Mon–Sat: 9am–6pm</li>
+
+      </ul>
+
+    </div>
+
   </div>
-  <div class="footer-links">
-    <a href="#how">How It Works</a>
-    <a href="#services">Services</a>
-    <a href="#waste">We Accept</a>
-    <a href="#contact">Contact</a>
+
+  <div class="footer-bottom">
+
+    <span>© 2026 NextGen E-Waste Solutions. All rights reserved.</span>
+
+    <div>
+
+      <a href="#">Privacy Policy</a>
+
+      <a href="#">Terms of Use</a>
+
+      <a href="#">Sitemap</a>
+
+    </div>
+
   </div>
+
 </footer>
 
+
+
+<!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+
+<a href="https://wa.me/919876543210?text=Hi%20NextGen%20E-Waste%2C%20I%20want%20to%20book%20a%20pickup!" target="_blank" class="wa-float" id="waFloat">
+
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.478 2 2 6.477 2 12c0 1.99.583 3.842 1.586 5.4L2 22l4.74-1.565A9.96 9.96 0 0012 22c5.522 0 10-4.477 10-10S17.522 2 12 2z"/></svg>
+
+</a>
+
+<div class="wa-tooltip">Chat on WhatsApp 💬</div>
+
+
+
+<script>
+
+// ===== PAGE NAVIGATION =====
+
+function showPage(id) {
+
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+  document.getElementById('page-' + id).classList.add('active');
+
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(a => a.classList.remove('active'));
+
+  const el = document.getElementById('nav-' + id);
+
+  const mel = document.getElementById('mnav-' + id);
+
+  if (el) el.classList.add('active');
+
+  if (mel) mel.classList.add('active');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+}
+
+
+
+// ===== MOBILE MENU =====
+
+function toggleMenu() {
+
+  const m = document.getElementById('mobileMenu');
+
+  const h = document.getElementById('hamburger');
+
+  const open = m.classList.toggle('open');
+
+  h.textContent = open ? '✕' : '☰';
+
+}
+
+
+
+// ===== FAQ =====
+
+function toggleFaq(btn) {
+
+  const answer = btn.nextElementSibling;
+
+  const icon = btn.querySelector('.faq-icon');
+
+  const isOpen = answer.classList.toggle('open');
+
+  icon.textContent = isOpen ? '−' : '+';
+
+  icon.classList.toggle('open', isOpen);
+
+}
+
+
+
+// ===== CONTACT FORM =====
+
+function submitForm() {
+
+  const name    = document.getElementById('fname').value.trim();
+
+  const phone   = document.getElementById('fphone').value.trim();
+
+  const email   = document.getElementById('femail').value.trim();
+
+  const service = document.getElementById('fservice').value;
+
+  const address = document.getElementById('faddress').value.trim();
+
+
+
+  if (!name)    { alert('Please enter your name.'); document.getElementById('fname').focus(); return; }
+
+  if (!phone)   { alert('Please enter your phone number.'); document.getElementById('fphone').focus(); return; }
+
+  if (!email)   { alert('Please enter your email address.'); document.getElementById('femail').focus(); return; }
+
+  if (!service) { alert('Please select a service.'); document.getElementById('fservice').focus(); return; }
+
+  if (!address) { alert('Please enter your address.'); document.getElementById('faddress').focus(); return; }
+
+
+
+  // Build WhatsApp pre-fill message
+
+  const msg = document.getElementById('fmessage').value.trim();
+
+  const date = document.getElementById('fdate').value;
+
+  const waText = encodeURIComponent(
+
+    `Hi NextGen E-Waste! I just submitted a pickup request.\n\n` +
+
+    `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n` +
+
+    `Service: ${service}\nAddress: ${address}` +
+
+    (date ? `\nPreferred Date: ${date}` : '') +
+
+    (msg ? `\nDevices: ${msg}` : '')
+
+  );
+
+  // Store for success screen
+
+  window._waConfirmLink = `https://wa.me/919876543210?text=${waText}`;
+
+
+
+  document.getElementById('contactForm').style.display = 'none';
+
+  document.getElementById('formSuccess').style.display = 'block';
+
+
+
+  // Update the WhatsApp link in success panel
+
+  const waLinks = document.querySelectorAll('#formSuccess a[href*="wa.me"]');
+
+  waLinks.forEach(l => l.href = window._waConfirmLink);
+
+}
+
+
+
+function resetForm() {
+
+  document.getElementById('contactForm').style.display = 'block';
+
+  document.getElementById('formSuccess').style.display = 'none';
+
+  ['fname','fphone','femail','faddress','fmessage','fdate'].forEach(id => {
+
+    const el = document.getElementById(id);
+
+    if (el) el.value = '';
+
+  });
+
+  document.getElementById('fservice').value = '';
+
+  if (document.getElementById('fhear')) document.getElementById('fhear').value = '';
+
+}
+
+
+
+// ===== WhatsApp tooltip show on hover =====
+
+const waFloat = document.getElementById('waFloat');
+
+const waTooltip = document.querySelector('.wa-tooltip');
+
+if (waFloat && waTooltip) {
+
+  waFloat.addEventListener('mouseenter', () => waTooltip.style.opacity = '1');
+
+  waFloat.addEventListener('mouseleave', () => waTooltip.style.opacity = '0');
+
+}
+
+</script>
+
 </body>
+
 </html>
+
